@@ -63,12 +63,72 @@ public class Coin
 
     public String toString()
     {
-    String str = ("Coin Information:\nValue: " + value + "\nCommon Name: "    
-        + commonName + "\nFront Motto: " + frontMotto + "\nManufacture Year: "
-        + manufactureYear + "\nFront Image: " + frontImage + "\nBack Image: " 
-        + backImage + "\nBack Motto: " + backMotto + "\nFront Label: " 
-        + frontLabel + "\nBack Label: " + backLabel + "\nValue Description: " 
-        + valueDescription + "\nRidged Edge: " + ridgedEdge + "\nMetallurgy: " + metallurgy);
+        String str = ("Coin Information:\nValue: " + value + "\nCommon Name: "    
+            + commonName + "\nFront Motto: " + frontMotto + "\nManufacture Year: "
+            + manufactureYear + "\nFront Image: " + frontImage + "\nBack Image: " 
+            + backImage + "\nBack Motto: " + backMotto + "\nFront Label: " 
+            + frontLabel + "\nBack Label: " + backLabel + "\nValue Description: " 
+            + valueDescription + "\nRidged Edge: " + ridgedEdge + "\nMetallurgy: " + metallurgy);
         return str;
+    }
+
+    public double getValue()
+    {
+        return value;
+    }
+
+    public String getCommonName() 
+    {
+        return commonName;
+    }
+    
+    public String getFrontMotto() 
+    {
+        return frontMotto;
+    }
+    
+    public int getManufactureYear() 
+    {
+        return manufactureYear;
+    }
+    
+    public String getFrontImage() 
+    {
+        return frontImage;
+    }
+    
+    public String getBackImage() 
+    {
+        return backImage;
+    }
+    
+    public String getBackMotto() 
+    {
+        return backMotto;
+    }
+    
+    public String getFrontLabel() 
+    {
+        return frontLabel;
+    }
+    
+    public String getBackLabel() 
+    {
+        return backLabel;
+    }
+    
+    public String getValueDescription() 
+    {
+        return valueDescription;
+    }
+    
+    public boolean isRidgedEdge() 
+    {
+        return ridgedEdge;
+    }
+    
+    public String getMetallurgy() 
+    {
+        return metallurgy;
     }
 }
