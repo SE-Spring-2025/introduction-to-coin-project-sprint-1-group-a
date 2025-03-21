@@ -63,10 +63,12 @@ public class Coin
 
     public String toString()
     {
-        return null;
+    String str = ("Coin Information:\nValue: " + value + "\nCommon Name: "    
+        + commonName + "\nFront Motto: " + frontMotto + "\nManufacture Year: "
+        + manufactureYear + "\nFront Image: " + frontImage + "\nBack Image: " 
+        + backImage + "\nBack Motto: " + backMotto + "\nFront Label: " 
+        + frontLabel + "\nBack Label: " + backLabel + "\nValue Description: " 
+        + valueDescription + "\nRidged Edge: " + ridgedEdge + "\nMetallurgy: " + metallurgy);
+        return str;
     }
-
-
-
-
 }
