@@ -21,18 +21,37 @@ public class Coin {
     boolean ridgedEdge;
     String metallurgey;
 
+    /**
+     * Default constructor.
+     */
     public Coin() {
 
     }
 
+    /**
+     * Constructor with value.
+     * 
+     * @param value
+     */
     public Coin(double value) {
 
     }
 
+    /**
+     * Constructor with value and year.
+     * 
+     * @param value
+     * @param year
+     */
     public Coin(double value, int year) {
 
     }
 
+    /**
+     * To string method.
+     * 
+     * @return String
+     */
     public String toString() {
         
     }

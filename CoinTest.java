@@ -15,11 +15,17 @@ public class CoinTest {
     Coin testHalfDollar;
     coin testDollar;
 
+    /**
+     * Tests constructors.
+     */
     public void testConstructors() {
 
     }
 
-    public void testConstructors() {
+    /**
+     * Tests getters.
+     */
+    public void testGetters() {
 
     }
 }
