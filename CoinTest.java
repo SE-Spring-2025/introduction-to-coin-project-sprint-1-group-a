@@ -13,7 +13,7 @@ public class CoinTest {
     Coin testDime;
     Coin testQuarter;
     Coin testHalfDollar;
-    coin testDollar;
+    Coin testDollar;
 
     /**
      * Tests constructors.
