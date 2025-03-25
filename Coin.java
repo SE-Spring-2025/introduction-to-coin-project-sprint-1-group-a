@@ -19,7 +19,7 @@ public class Coin {
     String backLabel;
     String valueDescription;
     boolean ridgedEdge;
-    String metallurgey;
+    String metallurgy;
 
     /**
      * Default constructor.
@@ -34,7 +34,7 @@ public class Coin {
      * @param value
      */
     public Coin(double value) {
-
+        this.value = value;
     }
 
     /**
@@ -44,7 +44,8 @@ public class Coin {
      * @param year
      */
     public Coin(double value, int year) {
-
+        this.value = value;
+        this.manufactureYear = year;
     }
 
     /**
@@ -53,7 +54,11 @@ public class Coin {
      * @return String
      */
     public String toString() {
-        
+        return "Value: " + value + "\nCommon Name: " + commonName + "\nFront Motto: " + frontMotto
+                + "\nManufacture Year: " + manufactureYear + "\nFront Image: " + frontImage + "\nBack Image: "
+                + backImage + "\nBack Motto: " + backMotto + "\nFront Label: " + frontLabel + "\nBack Label: "
+                + backLabel + "\nValue Description: " + valueDescription + "\nRidged Edge: " + ridgedEdge
+                + "\nMetallurgy: " + metallurgy;
     }
 
     /**
@@ -62,7 +67,7 @@ public class Coin {
      * @return double value.
      */
     public double getValue() {
-        
+        return value;
     }
 
     /**
@@ -71,7 +76,7 @@ public class Coin {
      * @return String common name.
      */
     public String getCommonName() {
-        
+        return commonName;
     }
 
     /**
@@ -80,7 +85,7 @@ public class Coin {
      * @return String front motto.
      */
     public String getFrontMotto() {
-        
+        return frontMotto;
     }
 
     /**
@@ -89,7 +94,7 @@ public class Coin {
      * @return int manufacture year.
      */
     public int getManufactureYear() {
-        
+        return manufactureYear;
     }
 
     /**
@@ -98,7 +103,7 @@ public class Coin {
      * @return String front image.
      */
     public String getFrontImage() {
-        
+        return frontImage;
     }
 
     /**
@@ -107,7 +112,7 @@ public class Coin {
      * @return String back image.
      */
     public String getBackImage() {
-        
+        return backImage;
     }
 
     /**
@@ -116,7 +121,7 @@ public class Coin {
      * @return String back motto.
      */
     public String getBackMotto() {
-        
+        return backMotto;
     }
 
     /**
@@ -125,7 +130,7 @@ public class Coin {
      * @return String front label.
      */
     public String getFrontLabel() {
-        
+        return frontLabel;
     }
 
     /**
@@ -134,7 +139,7 @@ public class Coin {
      * @return String back label.
      */
     public String getBackLabel() {
-        
+        return backLabel;
     }
 
     /**
@@ -143,7 +148,7 @@ public class Coin {
      * @return String value description.
      */
     public String getValueDescription() {
-        
+        return valueDescription;
     }
 
     /**
@@ -152,7 +157,7 @@ public class Coin {
      * @return boolean ridged edge.
      */
     public boolean getRidgedEdge() {
-        
+        return ridgedEdge;
     }
 
     /**
@@ -160,8 +165,8 @@ public class Coin {
      * 
      * @return String metallurgey.
      */
-    public String getMetallurgey() {
-        
+    public String getMetallurgy() {
+        return metallurgy;
     }
 
     /**
@@ -170,7 +175,7 @@ public class Coin {
      * @param value
      */
     public void setValue(double value) {
-        
+        this.value = value;
     }
 
     /**
@@ -179,7 +184,7 @@ public class Coin {
      * @param commonName
      */
     public void setCommonName(String commonName) {
-        
+        this.commonName = commonName;
     }
 
     /**
@@ -188,7 +193,7 @@ public class Coin {
      * @param frontMotto
      */
     public void setFrontMotto(String frontMotto) {
-        
+        this.frontMotto = frontMotto;
     }
 
     /**
@@ -197,7 +202,7 @@ public class Coin {
      * @param manufactureYear
      */
     public void setManufactureYear(int manufactureYear) {
-        
+        this.manufactureYear = manufactureYear;
     }
 
     /**
@@ -206,7 +211,7 @@ public class Coin {
      * @param frontImage
      */
     public void setFrontImage(String frontImage) {
-        
+        this.frontImage = frontImage;
     }
 
     /**
@@ -215,7 +220,7 @@ public class Coin {
      * @param backImage
      */
     public void setBackImage(String backImage) {
-        
+        this.backImage = backImage;
     }
 
     /**
@@ -224,7 +229,7 @@ public class Coin {
      * @param backMotto
      */
     public void setBackMotto(String backMotto) {
-        
+        this.backMotto = backMotto;
     }
 
     /**
@@ -233,7 +238,7 @@ public class Coin {
      * @param frontLabel
      */
     public void setFrontLabel(String frontLabel) {
-        
+        this.frontLabel = frontLabel;
     }
 
     /**
@@ -242,7 +247,7 @@ public class Coin {
      * @param backLabel
      */
     public void setBackLabel(String backLabel) {
-        
+        this.backLabel = backLabel;
     }
 
     /**
@@ -251,7 +256,7 @@ public class Coin {
      * @param valueDescription
      */
     public void setValueDescription(String valueDescription) {
-        
+        this.valueDescription = valueDescription;
     }
 
     /**
@@ -260,16 +265,16 @@ public class Coin {
      * @param ridgedEdge
      */
     public void setRidgedEdge(boolean ridgedEdge) {
-        
+        this.ridgedEdge = ridgedEdge;
     }
 
     /**
-     * Set metallurgey.
+     * Set metallurgy.
      * 
-     * @param metallurgey
+     * @param metallurgy
      */
-    public void setMetallurgey(String metallurgey) {
-        
+    public void setMetallurgy(String metallurgy) {
+        this.metallurgy = metallurgy;
     }
 
 }
