@@ -1,6 +1,9 @@
-class NickelTest {
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class NickelTest {
     @Test
-    void testNickelDefaultConstructor() {
+    public void testNickelDefaultConstructor() {
         Nickel nickel = new Nickel();
         assertEquals(0.05, nickel.getValue());
         assertEquals("Nickel", nickel.getCommonName());
@@ -16,7 +19,7 @@ class NickelTest {
     }
     
     @Test
-    void testNickelYearConstructor() {
+    public void testNickelYearConstructor() {
         Nickel nickel = new Nickel(2000);
         assertEquals(2000, nickel.getManufactureYear());
     }
