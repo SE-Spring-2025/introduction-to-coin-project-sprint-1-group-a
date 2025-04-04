@@ -1,7 +1,7 @@
 import java.util.Calendar;
 import java.text.DecimalFormat;
 
-public class Coin 
+public abstract class Coin 
 {
     public static final double PENNY_VALUE = 0.01;
     public static final double NICKEL_VALUE = 0.05;
@@ -21,7 +21,8 @@ public class Coin
     String backLabel;
     String valueDescription;
     boolean ridgedEdge;
-    String metallurgy;
+    protected String metallurgy;
+    protected Metallurgy smelter;
 
     /**
      * Default constructor.
@@ -36,7 +37,10 @@ public class Coin
         this(value, (Calendar.getInstance()).get(Calendar.YEAR));
     }
 
-    public Coin(double value, int year) {
+    public Coin(double value, int year, String frontMotto, int manufactureYear, 
+    String frontImage, String backImage, String backMotto, String frontLabel, 
+    String backLabel, String valueDescription, boolean ridgedEdge, String metallurgy, 
+    Metallurgy smelter) {
 
         if (cmpDoubles(value, PENNY_VALUE)) {
             commonName = "Penny";
@@ -45,6 +49,18 @@ public class Coin
             valueDescription = "ONE CENT";
             ridgedEdge = false;
             metallurgy = "Copper";
+            this.year = year;
+            this.frontMotto = frontMotto;
+            this.manufactureYear = manufactureYear;
+            this.frontImage = frontImage;
+            this.backImage = backImage;
+            this.backMotto = backMotto;
+            this.frontLabel = frontLabel;
+            this.backLabel = backlabel;
+            this.valueDescription = valueDescription;
+            this.ridgedEdge = ridgedEdge;
+            this.metallurgy = metallurgy;
+            this.smelter = smelter;
         }
         else if (cmpDoubles(value, NICKEL_VALUE)) {
             commonName = "Nickel";
@@ -240,6 +256,11 @@ public class Coin
     public void setMetallurgy(String metallurgy) 
     {
         this.metallurgy = metallurgy;
+    }
+
+    public String smelt()
+    {
+        smelter.smelt();
     }
 
 }
