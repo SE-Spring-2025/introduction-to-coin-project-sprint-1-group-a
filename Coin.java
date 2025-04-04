@@ -1,13 +1,15 @@
-/**
- * Main coins code.
- * 
- * @author Eva Anderson
- * @author
- * @author
- * @author
- * @version 1.0
- */
-public class Coin {
+import java.util.Calendar;
+import java.text.DecimalFormat;
+
+public class Coin 
+{
+    public static final double PENNY_VALUE = 0.01;
+    public static final double NICKEL_VALUE = 0.05;
+    public static final double DIME_VALUE = 0.10;
+    public static final double QUARTER_VALUE = 0.25;
+    public static final double HALFDOLLAR_VALUE = 0.50;
+    public static final double DOLLAR_VALUE = 1.00;
+
     double value;
     String commonName;
     String frontMotto;
@@ -24,256 +26,219 @@ public class Coin {
     /**
      * Default constructor.
      */
-    public Coin() {
-
+    public Coin() 
+    {
+	    this(0);
     }
 
-    /**
-     * Constructor with value.
-     * 
-     * @param value
-     */
-    public Coin(double value) {
-        this.value = value;
+    public Coin(double value) 
+    {
+        this(value, (Calendar.getInstance()).get(Calendar.YEAR));
     }
 
-    /**
-     * Constructor with value and year.
-     * 
-     * @param value
-     * @param year
-     */
     public Coin(double value, int year) {
+
+        if (cmpDoubles(value, PENNY_VALUE)) {
+            commonName = "Penny";
+            frontImage = "A_Lincoln";
+            backImage = "Lincoln_Memorial";
+            valueDescription = "ONE CENT";
+            ridgedEdge = false;
+            metallurgy = "Copper";
+        }
+        else if (cmpDoubles(value, NICKEL_VALUE)) {
+            commonName = "Nickel";
+            frontImage = "T_Jefferson";
+            backImage = "Jefferson_Memorial";
+            valueDescription = "FIVE CENTS";
+            ridgedEdge = false;
+            metallurgy = "Cupro-Nickel";
+        }
+        else if (cmpDoubles(value, DIME_VALUE)) {
+            commonName = "Dime";
+            frontImage = "F_Roosevelt";
+            backImage = "Torch_Branches";
+            valueDescription = "ONE DIME";
+            ridgedEdge = true;
+            metallurgy = "Cupro-Nickel";
+        }
+        else if (cmpDoubles(value, QUARTER_VALUE)) {
+            commonName = "Quarter";
+            frontImage = "G_Washington";
+            backImage = "Eagle";
+            valueDescription = "QUARTER DOLLAR";
+            ridgedEdge = true;
+            metallurgy = "Cupro-Nickel";
+        }
+        else if (cmpDoubles(value, HALFDOLLAR_VALUE)) {
+            commonName = "HalfDollar";
+            frontImage = "J_Kennedy";
+            backImage = "Presidential_Seal";
+            valueDescription = "HALF DOLLAR";
+            ridgedEdge = true;
+            metallurgy = "Cupro-Nickel";
+        }
+        else if (cmpDoubles(value, DOLLAR_VALUE)) {
+            commonName = "Dollar";
+            frontImage = "S_Anthony";
+            backImage = "Moon_Eagle";
+            valueDescription = "ONE DOLLAR";
+            ridgedEdge = true;
+            metallurgy = "Cupro-Nickel";
+        }
+        else value = 0;
+    
         this.value = value;
         this.manufactureYear = year;
-    }
+    
+        frontMotto = "IN GOD WE TRUST";
+        backMotto = "E PLURIBUS UNUM";
+        frontLabel = "LIBERTY";
+        backLabel = "UNITED STATES OF AMERICA";
+        }
 
-    /**
-     * To string method.
-     * 
-     * @return String
-     */
-    public String toString() {
-        return "Value: " + value + "\nCommon Name: " + commonName + "\nFront Motto: " + frontMotto
-                + "\nManufacture Year: " + manufactureYear + "\nFront Image: " + frontImage + "\nBack Image: "
-                + backImage + "\nBack Motto: " + backMotto + "\nFront Label: " + frontLabel + "\nBack Label: "
-                + backLabel + "\nValue Description: " + valueDescription + "\nRidged Edge: " + ridgedEdge
-                + "\nMetallurgy: " + metallurgy;
-    }
+        private boolean cmpDoubles(double a, double b) 
+        {
+            return Math.abs(a-b) < 0.00001;
+        }
 
-    /**
-     * Get value.
-     * 
-     * @return double value.
-     */
-    public double getValue() {
+        public String toString() 
+        {
+            DecimalFormat df = new DecimalFormat("0.00");
+            String formattedValue = df.format(value);
+            
+            return "[" + commonName
+                + "," + formattedValue
+                + "," + manufactureYear
+                + ",'" + frontMotto
+                + "','" + backMotto
+                + "','" + frontImage
+                + "','" + backImage
+                + "','" + frontLabel
+                + "','" + backLabel
+                + "','" + valueDescription
+                + "'," + (ridgedEdge ? "ridges" : "smooth")
+                + ",'" + metallurgy
+                + "']";
+        }
+
+    public double getValue() 
+    {
         return value;
     }
 
-    /**
-     * Get common name.
-     * 
-     * @return String common name.
-     */
-    public String getCommonName() {
+    public String getCommonName() 
+    {
         return commonName;
     }
 
-    /**
-     * Get front motto.
-     * 
-     * @return String front motto.
-     */
-    public String getFrontMotto() {
+    public String getFrontMotto() 
+    {
         return frontMotto;
     }
 
-    /**
-     * Get manufacture year.
-     * 
-     * @return int manufacture year.
-     */
-    public int getManufactureYear() {
+    public int getManufactureYear() 
+    {
         return manufactureYear;
     }
 
-    /**
-     * Get front image.
-     * 
-     * @return String front image.
-     */
-    public String getFrontImage() {
+    public String getFrontImage() 
+    {
         return frontImage;
     }
 
-    /**
-     * Get back image.
-     * 
-     * @return String back image.
-     */
-    public String getBackImage() {
+    public String getBackImage() 
+    {
         return backImage;
     }
 
-    /**
-     * Get back motto.
-     * 
-     * @return String back motto.
-     */
-    public String getBackMotto() {
+    public String getBackMotto() 
+    {
         return backMotto;
     }
 
-    /**
-     * Get front label.
-     * 
-     * @return String front label.
-     */
-    public String getFrontLabel() {
+    public String getFrontLabel() 
+    {
         return frontLabel;
     }
 
-    /**
-     * Get back label.
-     * 
-     * @return String back label.
-     */
-    public String getBackLabel() {
+    public String getBackLabel() 
+    {
         return backLabel;
     }
 
-    /**
-     * Get value description.
-     * 
-     * @return String value description.
-     */
-    public String getValueDescription() {
+    public String getValueDescription() 
+    {
         return valueDescription;
     }
 
-    /**
-     * Get ridged edge.
-     * 
-     * @return boolean ridged edge.
-     */
-    public boolean getRidgedEdge() {
+    public boolean getRidgedEdge() 
+    {
         return ridgedEdge;
     }
 
-    /**
-     * Get metallurgey.
-     * 
-     * @return String metallurgey.
-     */
-    public String getMetallurgy() {
+    public String getMetallurgy() 
+    {
         return metallurgy;
     }
 
-    /**
-     * Set value.
-     * 
-     * @param value
-     */
-    public void setValue(double value) {
+    public void setValue(double value) 
+    {
         this.value = value;
     }
 
-    /**
-     * Set common name.
-     * 
-     * @param commonName
-     */
-    public void setCommonName(String commonName) {
+    public void setCommonName(String commonName) 
+    {
         this.commonName = commonName;
     }
 
-    /**
-     * Set front motto.
-     * 
-     * @param frontMotto
-     */
-    public void setFrontMotto(String frontMotto) {
+    public void setFrontMotto(String frontMotto) 
+    {
         this.frontMotto = frontMotto;
     }
 
-    /**
-     * Set manufacture year.
-     * 
-     * @param manufactureYear
-     */
-    public void setManufactureYear(int manufactureYear) {
+    public void setManufactureYear(int manufactureYear) 
+    {
         this.manufactureYear = manufactureYear;
     }
 
-    /**
-     * Set front image.
-     * 
-     * @param frontImage
-     */
-    public void setFrontImage(String frontImage) {
+    public void setFrontImage(String frontImage) 
+    {
         this.frontImage = frontImage;
     }
 
-    /**
-     * Set back image.
-     * 
-     * @param backImage
-     */
-    public void setBackImage(String backImage) {
+    public void setBackImage(String backImage) 
+    {
         this.backImage = backImage;
     }
 
-    /**
-     * Set back motto.
-     * 
-     * @param backMotto
-     */
-    public void setBackMotto(String backMotto) {
+    public void setBackMotto(String backMotto) 
+    {
         this.backMotto = backMotto;
     }
 
-    /**
-     * Set front label.
-     * 
-     * @param frontLabel
-     */
-    public void setFrontLabel(String frontLabel) {
+    public void setFrontLabel(String frontLabel) 
+    {
         this.frontLabel = frontLabel;
     }
 
-    /**
-     * Set back label.
-     * 
-     * @param backLabel
-     */
-    public void setBackLabel(String backLabel) {
+    public void setBackLabel(String backLabel) 
+    {
         this.backLabel = backLabel;
     }
 
-    /**
-     * Set value description.
-     * 
-     * @param valueDescription
-     */
-    public void setValueDescription(String valueDescription) {
+    public void setValueDescription(String valueDescription) 
+    {
         this.valueDescription = valueDescription;
     }
 
-    /**
-     * Set ridged edge.
-     * 
-     * @param ridgedEdge
-     */
-    public void setRidgedEdge(boolean ridgedEdge) {
+    public void setRidgedEdge(boolean ridgedEdge) 
+    {
         this.ridgedEdge = ridgedEdge;
     }
 
-    /**
-     * Set metallurgy.
-     * 
-     * @param metallurgy
-     */
-    public void setMetallurgy(String metallurgy) {
+    public void setMetallurgy(String metallurgy) 
+    {
         this.metallurgy = metallurgy;
     }
 
