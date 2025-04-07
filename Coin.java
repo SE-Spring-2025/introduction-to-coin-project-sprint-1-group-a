@@ -10,6 +10,9 @@ public class Coin
     public static final double HALFDOLLAR_VALUE = 0.50;
     public static final double DOLLAR_VALUE = 1.00;
 
+    protected Metallurgy smelter;
+    protected String metallurgy;
+    
     double value;
     String commonName;
     String frontMotto;
@@ -21,7 +24,6 @@ public class Coin
     String backLabel;
     String valueDescription;
     boolean ridgedEdge;
-    String metallurgy;
 
     /**
      * Default constructor.
