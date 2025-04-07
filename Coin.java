@@ -38,75 +38,35 @@ public class Coin
         this(value, (Calendar.getInstance()).get(Calendar.YEAR));
     }
 
-    public Coin(double value, int year) {
-
-        if (cmpDoubles(value, PENNY_VALUE)) {
-            commonName = "Penny";
-            frontImage = "A_Lincoln";
-            backImage = "Lincoln_Memorial";
-            valueDescription = "ONE CENT";
-            ridgedEdge = false;
-            smelter = new Copper();
-        }
-        else if (cmpDoubles(value, NICKEL_VALUE)) {
-            commonName = "Nickel";
-            frontImage = "T_Jefferson";
-            backImage = "Jefferson_Memorial";
-            valueDescription = "FIVE CENTS";
-            ridgedEdge = false;
-            smelter = new CuproNickel();
-        }
-        else if (cmpDoubles(value, DIME_VALUE)) {
-            commonName = "Dime";
-            frontImage = "F_Roosevelt";
-            backImage = "Torch_Branches";
-            valueDescription = "ONE DIME";
-            ridgedEdge = true;
-            smelter = new CuproNickel();
-        }
-        else if (cmpDoubles(value, QUARTER_VALUE)) {
-            commonName = "Quarter";
-            frontImage = "G_Washington";
-            backImage = "Eagle";
-            valueDescription = "QUARTER DOLLAR";
-            ridgedEdge = true;
-            smelter = new CuproNickel();
-        }
-        else if (cmpDoubles(value, HALFDOLLAR_VALUE)) {
-            commonName = "HalfDollar";
-            frontImage = "J_Kennedy";
-            backImage = "Presidential_Seal";
-            valueDescription = "HALF DOLLAR";
-            ridgedEdge = true;
-            smelter = new CuproNickel();
-        }
-        else if (cmpDoubles(value, DOLLAR_VALUE)) {
-            commonName = "Dollar";
-            frontImage = "S_Anthony";
-            backImage = "Moon_Eagle";
-            valueDescription = "ONE DOLLAR";
-            ridgedEdge = true;
-            smelter = new CuproNickel();
-        }
-        else value = 0;
-    
+    public Coin(double value, int year) 
+    {
         this.value = value;
         this.manufactureYear = year;
-    
-        frontMotto = "IN GOD WE TRUST";
-        backMotto = "E PLURIBUS UNUM";
-        frontLabel = "LIBERTY";
-        backLabel = "UNITED STATES OF AMERICA";
+    }
 
+    public Coin(double value, String commonName, String frontMotto, int year,
+    String frontImage, String backImage,
+    String backMotto, String frontLabel, String backLabel,
+    String valueDescription, boolean ridgedEdge, Metallurgy smelter) 
+    {
+        this.value = value;
+        this.commonName = commonName;
+        this.frontMotto = frontMotto;
+        this.manufactureYear = year;
+        this.frontImage = frontImage;
+        this.backImage = backImage;
+        this.backMotto = backMotto;
+        this.frontLabel = frontLabel;
+        this.backLabel = backLabel;
+        this.valueDescription = valueDescription;
+        this.ridgedEdge = ridgedEdge;
+
+        this.smelter = smelter;
         smelt();
-        }
+    }       
 
-        private boolean cmpDoubles(double a, double b) 
-        {
-            return Math.abs(a-b) < 0.00001;
-        }
 
-        public String toString() 
+    public String toString() 
         {
             DecimalFormat df = new DecimalFormat("0.00");
             String formattedValue = df.format(value);
@@ -241,9 +201,8 @@ public class Coin
         this.ridgedEdge = ridgedEdge;
     }
 
-    public void setMetallurgy(String metallurgy) 
+    public void smelt() 
     {
-        this.metallurgy = metallurgy;
+        metallurgy = smelter.smelt();
     }
-
 }

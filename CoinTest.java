@@ -18,64 +18,54 @@ public class CoinTest {
     public void testConstructors() {
 	// Basically just make sure they don't blow up
 	// parameterless constructor
-	try {
-	    Coin c = new Coin();
-	}
-	catch (Exception e) {
-	    fail("Coin() constructor caused exception: "+e.getMessage());
+	try { Coin c = new Penny(); } catch (Exception e) {
+		fail("Penny constructor failed: " + e.getMessage());
 	}
 
-	// value arg constructor
-	try {
-	    Coin c = new Coin(0.05);
-	}
-	catch (Exception e) {
-	    fail("Coin() constructor caused exception: "+e.getMessage());
+	try { Coin c = new Nickel(); } catch (Exception e) {
+		fail("Nickel constructor failed: " + e.getMessage());
 	}
 
-	// value and year args constructor
-	try {
-	    Coin c = new Coin(0.10, 2020);
-	}
-	catch (Exception e) {
-	    fail("Coin() constructor caused exception: "+e.getMessage());
+	try { Coin c = new Dime(); } catch (Exception e) {
+		fail("Dime constructor failed: " + e.getMessage());
 	}
 
-	// make it here then didn't fail!
-	assertTrue(true);
-    }
+	try { Coin c = new Quarter(); } catch (Exception e) {
+		fail("Quarter constructor failed: " + e.getMessage());
+	}
+
+	try { Coin c = new HalfDollar(); } catch (Exception e) {
+		fail("HalfDollar constructor failed: " + e.getMessage());
+	}
+
+	try { Coin c = new Dollar(); } catch (Exception e) {
+		fail("Dollar constructor failed: " + e.getMessage());
+	}
+
+	assertTrue(true); // if we got here, everything worked
+	}
 
     @Test
     public void testGetters() {
-	if (! testPenny()) fail("penny getters failed");
-	if (! testNickel()) fail("nickel getters failed");
-	if (! testDime()) fail("dime getters failed");
-	if (! testQuarter()) fail("quarter getters failed");
-	if (! testHalfDollar()) fail("half dollar getters failed");
-	if (! testDollar()) fail("dollar getters failed");
-	
-	// make it here then didn't fail!
-	assertTrue(true);
+		assertTrue(testPenny(), "Penny getters failed");
+        assertTrue(testNickel(), "Nickel getters failed");
+        assertTrue(testDime(), "Dime getters failed");
+        assertTrue(testQuarter(), "Quarter getters failed");
+        assertTrue(testHalfDollar(), "HalfDollar getters failed");
+        assertTrue(testDollar(), "Dollar getters failed");
     }
 
     @Test
     public void testToString() {
-	Coin c = new Coin(0.50, 1999);
-	String expectedOutput =
-	    "[HalfDollar,0.50,1999,'IN GOD WE TRUST','E PLURIBUS UNUM'"
-	    + ",'J_Kennedy','Presidential_Seal','LIBERTY'"
-	    + ",'UNITED STATES OF AMERICA','HALF DOLLAR',ridges"
-	    + ",'Cupro-Nickel']";
-	assertEquals(expectedOutput, c.toString());
+		Coin c = new HalfDollar(1999);
+        String expectedOutput = "[HalfDollar,0.50,1999,'IN GOD WE TRUST','E PLURIBUS UNUM'"
+                + ",'J_Kennedy','Presidential_Seal','LIBERTY','UNITED STATES OF AMERICA','HALF DOLLAR',ridges,'Cupro-Nickel']";
+        assertEquals(expectedOutput, c.toString());
     }
 
     //---------------------------------------------------------
     // private helper methods
     //---------------------------------------------------------
-    
-    private boolean cmpDoubles(double a, double b) {
-	return Math.abs(a-b) < 0.00001;
-    }
     private boolean testPenny() {
 	Coin c = new Coin(Coin.PENNY_VALUE);
 	

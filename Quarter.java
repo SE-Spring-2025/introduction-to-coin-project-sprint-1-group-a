@@ -1,3 +1,5 @@
+import java.util.Calendar;
+
 public class Quarter extends Coin {
 
     public Quarter() {
@@ -16,6 +18,6 @@ public class Quarter extends Coin {
                 "UNITED STATES OF AMERICA",
                 "QUARTER DOLLAR",
                 true,
-                "Cupro-Nickel");
+                new CuproNickel());
     }
 }
