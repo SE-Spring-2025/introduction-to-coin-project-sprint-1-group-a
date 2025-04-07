@@ -12,7 +12,7 @@ public class Coin
 
     protected Metallurgy smelter;
     protected String metallurgy;
-    
+
     double value;
     String commonName;
     String frontMotto;
@@ -46,7 +46,7 @@ public class Coin
             backImage = "Lincoln_Memorial";
             valueDescription = "ONE CENT";
             ridgedEdge = false;
-            metallurgy = "Copper";
+            smelter = new Copper();
         }
         else if (cmpDoubles(value, NICKEL_VALUE)) {
             commonName = "Nickel";
@@ -54,7 +54,7 @@ public class Coin
             backImage = "Jefferson_Memorial";
             valueDescription = "FIVE CENTS";
             ridgedEdge = false;
-            metallurgy = "Cupro-Nickel";
+            smelter = new CuproNickel();
         }
         else if (cmpDoubles(value, DIME_VALUE)) {
             commonName = "Dime";
@@ -62,7 +62,7 @@ public class Coin
             backImage = "Torch_Branches";
             valueDescription = "ONE DIME";
             ridgedEdge = true;
-            metallurgy = "Cupro-Nickel";
+            smelter = new CuproNickel();
         }
         else if (cmpDoubles(value, QUARTER_VALUE)) {
             commonName = "Quarter";
@@ -70,7 +70,7 @@ public class Coin
             backImage = "Eagle";
             valueDescription = "QUARTER DOLLAR";
             ridgedEdge = true;
-            metallurgy = "Cupro-Nickel";
+            smelter = new CuproNickel();
         }
         else if (cmpDoubles(value, HALFDOLLAR_VALUE)) {
             commonName = "HalfDollar";
@@ -78,7 +78,7 @@ public class Coin
             backImage = "Presidential_Seal";
             valueDescription = "HALF DOLLAR";
             ridgedEdge = true;
-            metallurgy = "Cupro-Nickel";
+            smelter = new CuproNickel();
         }
         else if (cmpDoubles(value, DOLLAR_VALUE)) {
             commonName = "Dollar";
@@ -86,7 +86,7 @@ public class Coin
             backImage = "Moon_Eagle";
             valueDescription = "ONE DOLLAR";
             ridgedEdge = true;
-            metallurgy = "Cupro-Nickel";
+            smelter = new CuproNickel();
         }
         else value = 0;
     
@@ -97,6 +97,8 @@ public class Coin
         backMotto = "E PLURIBUS UNUM";
         frontLabel = "LIBERTY";
         backLabel = "UNITED STATES OF AMERICA";
+
+        smelt();
         }
 
         private boolean cmpDoubles(double a, double b) 
