@@ -44,11 +44,6 @@ public abstract class Coin
 
         if (cmpDoubles(value, PENNY_VALUE)) {
             commonName = "Penny";
-            frontImage = "A_Lincoln";
-            backImage = "Lincoln_Memorial";
-            valueDescription = "ONE CENT";
-            ridgedEdge = false;
-            metallurgy = "Copper";
             this.year = year;
             this.frontMotto = frontMotto;
             this.manufactureYear = manufactureYear;
@@ -64,53 +59,89 @@ public abstract class Coin
         }
         else if (cmpDoubles(value, NICKEL_VALUE)) {
             commonName = "Nickel";
-            frontImage = "T_Jefferson";
-            backImage = "Jefferson_Memorial";
-            valueDescription = "FIVE CENTS";
-            ridgedEdge = false;
-            metallurgy = "Cupro-Nickel";
+            this.frontMotto = frontMotto;
+            this.manufactureYear = manufactureYear;
+            this.frontImage = frontImage;
+            this.backImage = backImage;
+            this.backMotto = backMotto;
+            this.frontLabel = frontLabel;
+            this.backLabel = backlabel;
+            this.valueDescription = valueDescription;
+            this.ridgedEdge = ridgedEdge;
+            this.metallurgy = metallurgy;
+            this.smelter = smelter;
         }
         else if (cmpDoubles(value, DIME_VALUE)) {
             commonName = "Dime";
-            frontImage = "F_Roosevelt";
-            backImage = "Torch_Branches";
-            valueDescription = "ONE DIME";
-            ridgedEdge = true;
-            metallurgy = "Cupro-Nickel";
+            this.frontMotto = frontMotto;
+            this.manufactureYear = manufactureYear;
+            this.frontImage = frontImage;
+            this.backImage = backImage;
+            this.backMotto = backMotto;
+            this.frontLabel = frontLabel;
+            this.backLabel = backlabel;
+            this.valueDescription = valueDescription;
+            this.ridgedEdge = ridgedEdge;
+            this.metallurgy = metallurgy;
+            this.smelter = smelter;
         }
         else if (cmpDoubles(value, QUARTER_VALUE)) {
             commonName = "Quarter";
-            frontImage = "G_Washington";
-            backImage = "Eagle";
-            valueDescription = "QUARTER DOLLAR";
-            ridgedEdge = true;
-            metallurgy = "Cupro-Nickel";
+            this.frontMotto = frontMotto;
+            this.manufactureYear = manufactureYear;
+            this.frontImage = frontImage;
+            this.backImage = backImage;
+            this.backMotto = backMotto;
+            this.frontLabel = frontLabel;
+            this.backLabel = backlabel;
+            this.valueDescription = valueDescription;
+            this.ridgedEdge = ridgedEdge;
+            this.metallurgy = metallurgy;
+            this.smelter = smelter;
         }
         else if (cmpDoubles(value, HALFDOLLAR_VALUE)) {
             commonName = "HalfDollar";
-            frontImage = "J_Kennedy";
-            backImage = "Presidential_Seal";
-            valueDescription = "HALF DOLLAR";
-            ridgedEdge = true;
-            metallurgy = "Cupro-Nickel";
+            this.frontMotto = frontMotto;
+            this.manufactureYear = manufactureYear;
+            this.frontImage = frontImage;
+            this.backImage = backImage;
+            this.backMotto = backMotto;
+            this.frontLabel = frontLabel;
+            this.backLabel = backlabel;
+            this.valueDescription = valueDescription;
+            this.ridgedEdge = ridgedEdge;
+            this.metallurgy = metallurgy;
+            this.smelter = smelter;
         }
         else if (cmpDoubles(value, DOLLAR_VALUE)) {
             commonName = "Dollar";
-            frontImage = "S_Anthony";
-            backImage = "Moon_Eagle";
-            valueDescription = "ONE DOLLAR";
-            ridgedEdge = true;
-            metallurgy = "Cupro-Nickel";
+            this.frontMotto = frontMotto;
+            this.manufactureYear = manufactureYear;
+            this.frontImage = frontImage;
+            this.backImage = backImage;
+            this.backMotto = backMotto;
+            this.frontLabel = frontLabel;
+            this.backLabel = backlabel;
+            this.valueDescription = valueDescription;
+            this.ridgedEdge = ridgedEdge;
+            this.metallurgy = metallurgy;
+            this.smelter = smelter;
         }
         else value = 0;
     
         this.value = value;
         this.manufactureYear = year;
-    
-        frontMotto = "IN GOD WE TRUST";
-        backMotto = "E PLURIBUS UNUM";
-        frontLabel = "LIBERTY";
-        backLabel = "UNITED STATES OF AMERICA";
+        this.frontMotto = frontMotto;
+        this.manufactureYear = manufactureYear;
+        this.frontImage = frontImage;
+        this.backImage = backImage;
+        this.backMotto = backMotto;
+        this.frontLabel = frontLabel;
+        this.backLabel = backlabel;
+        this.valueDescription = valueDescription;
+        this.ridgedEdge = ridgedEdge;
+        this.metallurgy = metallurgy;
+        this.smelter = smelter;
         }
 
         private boolean cmpDoubles(double a, double b) 
