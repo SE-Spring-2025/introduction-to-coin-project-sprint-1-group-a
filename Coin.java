@@ -1,7 +1,7 @@
 import java.util.Calendar;
 import java.text.DecimalFormat;
 
-public class Coin 
+public abstract class Coin 
 {
     public static final double PENNY_VALUE = 0.01;
     public static final double NICKEL_VALUE = 0.05;
@@ -9,9 +9,6 @@ public class Coin
     public static final double QUARTER_VALUE = 0.25;
     public static final double HALFDOLLAR_VALUE = 0.50;
     public static final double DOLLAR_VALUE = 1.00;
-
-    protected Metallurgy smelter;
-    protected String metallurgy;
 
     double value;
     String commonName;
@@ -24,6 +21,8 @@ public class Coin
     String backLabel;
     String valueDescription;
     boolean ridgedEdge;
+    protected String metallurgy;
+    protected Metallurgy smelter;
 
     /**
      * Default constructor.
@@ -38,35 +37,119 @@ public class Coin
         this(value, (Calendar.getInstance()).get(Calendar.YEAR));
     }
 
-    public Coin(double value, int year) 
-    {
-        this.value = value;
-        this.manufactureYear = year;
-    }
+    public Coin(double value, int year, String frontMotto, int manufactureYear, 
+    String frontImage, String backImage, String backMotto, String frontLabel, 
+    String backLabel, String valueDescription, boolean ridgedEdge, String metallurgy, 
+    Metallurgy smelter) {
 
-    public Coin(double value, String commonName, String frontMotto, int year,
-    String frontImage, String backImage,
-    String backMotto, String frontLabel, String backLabel,
-    String valueDescription, boolean ridgedEdge, Metallurgy smelter) 
-    {
+        if (cmpDoubles(value, PENNY_VALUE)) {
+            commonName = "Penny";
+            this.year = year;
+            this.frontMotto = frontMotto;
+            this.manufactureYear = manufactureYear;
+            this.frontImage = frontImage;
+            this.backImage = backImage;
+            this.backMotto = backMotto;
+            this.frontLabel = frontLabel;
+            this.backLabel = backlabel;
+            this.valueDescription = valueDescription;
+            this.ridgedEdge = ridgedEdge;
+            this.metallurgy = metallurgy;
+            this.smelter = smelter;
+        }
+        else if (cmpDoubles(value, NICKEL_VALUE)) {
+            commonName = "Nickel";
+            this.frontMotto = frontMotto;
+            this.manufactureYear = manufactureYear;
+            this.frontImage = frontImage;
+            this.backImage = backImage;
+            this.backMotto = backMotto;
+            this.frontLabel = frontLabel;
+            this.backLabel = backlabel;
+            this.valueDescription = valueDescription;
+            this.ridgedEdge = ridgedEdge;
+            this.metallurgy = metallurgy;
+            this.smelter = smelter;
+        }
+        else if (cmpDoubles(value, DIME_VALUE)) {
+            commonName = "Dime";
+            this.frontMotto = frontMotto;
+            this.manufactureYear = manufactureYear;
+            this.frontImage = frontImage;
+            this.backImage = backImage;
+            this.backMotto = backMotto;
+            this.frontLabel = frontLabel;
+            this.backLabel = backlabel;
+            this.valueDescription = valueDescription;
+            this.ridgedEdge = ridgedEdge;
+            this.metallurgy = metallurgy;
+            this.smelter = smelter;
+        }
+        else if (cmpDoubles(value, QUARTER_VALUE)) {
+            commonName = "Quarter";
+            this.frontMotto = frontMotto;
+            this.manufactureYear = manufactureYear;
+            this.frontImage = frontImage;
+            this.backImage = backImage;
+            this.backMotto = backMotto;
+            this.frontLabel = frontLabel;
+            this.backLabel = backlabel;
+            this.valueDescription = valueDescription;
+            this.ridgedEdge = ridgedEdge;
+            this.metallurgy = metallurgy;
+            this.smelter = smelter;
+        }
+        else if (cmpDoubles(value, HALFDOLLAR_VALUE)) {
+            commonName = "HalfDollar";
+            this.frontMotto = frontMotto;
+            this.manufactureYear = manufactureYear;
+            this.frontImage = frontImage;
+            this.backImage = backImage;
+            this.backMotto = backMotto;
+            this.frontLabel = frontLabel;
+            this.backLabel = backlabel;
+            this.valueDescription = valueDescription;
+            this.ridgedEdge = ridgedEdge;
+            this.metallurgy = metallurgy;
+            this.smelter = smelter;
+        }
+        else if (cmpDoubles(value, DOLLAR_VALUE)) {
+            commonName = "Dollar";
+            this.frontMotto = frontMotto;
+            this.manufactureYear = manufactureYear;
+            this.frontImage = frontImage;
+            this.backImage = backImage;
+            this.backMotto = backMotto;
+            this.frontLabel = frontLabel;
+            this.backLabel = backlabel;
+            this.valueDescription = valueDescription;
+            this.ridgedEdge = ridgedEdge;
+            this.metallurgy = metallurgy;
+            this.smelter = smelter;
+        }
+        else value = 0;
+    
         this.value = value;
-        this.commonName = commonName;
-        this.frontMotto = frontMotto;
         this.manufactureYear = year;
+        this.frontMotto = frontMotto;
+        this.manufactureYear = manufactureYear;
         this.frontImage = frontImage;
         this.backImage = backImage;
         this.backMotto = backMotto;
         this.frontLabel = frontLabel;
-        this.backLabel = backLabel;
+        this.backLabel = backlabel;
         this.valueDescription = valueDescription;
         this.ridgedEdge = ridgedEdge;
-
+        this.metallurgy = metallurgy;
         this.smelter = smelter;
-        smelt();
-    }       
+        }
 
+        private boolean cmpDoubles(double a, double b) 
+        {
+            return Math.abs(a-b) < 0.00001;
+        }
 
-    public String toString() 
+        public String toString() 
         {
             DecimalFormat df = new DecimalFormat("0.00");
             String formattedValue = df.format(value);
@@ -201,8 +284,14 @@ public class Coin
         this.ridgedEdge = ridgedEdge;
     }
 
-    public void smelt() 
+    public void setMetallurgy(String metallurgy) 
     {
-        metallurgy = smelter.smelt();
+        this.metallurgy = metallurgy;
     }
+
+    public String smelt()
+    {
+        smelter.smelt();
+    }
+
 }
