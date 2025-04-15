@@ -127,9 +127,8 @@ public abstract class Coin
             this.metallurgy = metallurgy;
             this.smelter = smelter;
         }
-        else value = 0;
-    
-        this.value = value;
+        else {
+	value = 0;
         this.manufactureYear = year;
         this.frontMotto = frontMotto;
         this.manufactureYear = manufactureYear;
@@ -142,6 +141,8 @@ public abstract class Coin
         this.ridgedEdge = ridgedEdge;
         this.metallurgy = metallurgy;
         this.smelter = smelter;
+	}
+	    coinCounts.incrementTotal();
         }
 
         private boolean cmpDoubles(double a, double b) 
