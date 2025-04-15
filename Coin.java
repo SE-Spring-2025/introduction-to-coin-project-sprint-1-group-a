@@ -296,3 +296,37 @@ public abstract class Coin
     }
 
 }
+
+class CoinCounts {
+    private int totalCoins = 0;
+    private int quarters = 0;
+    private List<CoinObserver> observers = new ArrayList<>();
+
+    public void addObserver(CoinObserver observer) {
+        observers.add(observer);
+    }
+
+    public void incrementTotal() {
+        totalCoins++;
+        notifyObservers();
+    }
+
+    public void incrementQuarters() {
+        quarters++;
+        notifyObservers();
+    }
+
+    public int getTotalCoins() {
+        return totalCoins;
+    }
+
+    public int getQuarters() {
+        return quarters;
+    }
+
+    private void notifyObservers() {
+        for (CoinObserver o : observers) {
+            o.update();
+        }
+    }
+}
