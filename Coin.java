@@ -23,6 +23,7 @@ public abstract class Coin
     boolean ridgedEdge;
     protected String metallurgy;
     protected Metallurgy smelter;
+    protected static CoinCounts coinCounts = new CoinCounts();
 
     /**
      * Default constructor.
@@ -293,6 +294,10 @@ public abstract class Coin
     public String smelt()
     {
         smelter.smelt();
+    }
+
+    public static CoinCounts getCoinCounts() {
+        return coinCounts;
     }
 
 }
