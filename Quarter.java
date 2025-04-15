@@ -19,5 +19,7 @@ public class Quarter extends Coin {
                 "QUARTER DOLLAR",
                 true,
                 new CuproNickel());
+                coinCounts.incrementTotal();
+                coinCounts.incrementQuarters();
     }
 }
