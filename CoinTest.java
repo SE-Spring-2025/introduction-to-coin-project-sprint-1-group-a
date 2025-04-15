@@ -14,6 +14,12 @@ public class CoinTest {
 	currYear = (Calendar.getInstance()).get(Calendar.YEAR);
     }
 
+	@BeforeEach
+    public void resetCoinCounts() {
+        // Reset static CoinCounts manually since it persists between tests
+        Coin.getCoinCounts().reset();
+    }
+
     @Test
     public void testConstructors() {
 	// Basically just make sure they don't blow up
@@ -46,6 +52,17 @@ public class CoinTest {
 	}
 
     @Test
+    public void testCoinCountsUpdated() {
+        new Quarter();
+        new Quarter();
+        new Penny();
+
+        CoinCounts counts = Coin.getCoinCounts();
+        assertEquals(3, counts.getTotalCoins(), "Total coins should be 3");
+        assertEquals(2, counts.getQuarters(), "Quarters should be 2");
+    }
+	
+	@Test
     public void testGetters() {
 		assertTrue(testPenny(), "Penny getters failed");
         assertTrue(testNickel(), "Nickel getters failed");
