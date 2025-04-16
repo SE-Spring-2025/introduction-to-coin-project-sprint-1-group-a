@@ -22,6 +22,7 @@ public abstract class Coin
     protected String backLabel;
     protected String valueDescription;
     protected boolean ridgedEdge;
+    protected Metallurgy smelter;
     protected String metallurgy;
 
     /**
@@ -40,7 +41,7 @@ public abstract class Coin
     public Coin(double value, String commonName, String frontMotto, int manufactureYear,
     String frontImage, String backImage, String backMotto,
     String frontLabel, String backLabel, String valueDescription,
-    boolean ridgedEdge, String metallurgy) 
+    boolean ridgedEdge, Metallurgy smelter) 
     {
         this.value = value;
         this.commonName = commonName;
@@ -54,6 +55,8 @@ public abstract class Coin
         this.valueDescription = valueDescription;
         this.ridgedEdge = ridgedEdge;
         this.metallurgy = metallurgy;
+        this.smelter = smelter;
+        smelt();
     }
     public Coin(double value, int year) {
 
@@ -63,7 +66,7 @@ public abstract class Coin
             backImage = "Lincoln_Memorial";
             valueDescription = "ONE CENT";
             ridgedEdge = false;
-            metallurgy = "Copper";
+            metallurgy = new Copper().smelt();
         }
         else if (cmpDoubles(value, NICKEL_VALUE)) {
             commonName = "Nickel";
@@ -71,7 +74,7 @@ public abstract class Coin
             backImage = "Jefferson_Memorial";
             valueDescription = "FIVE CENTS";
             ridgedEdge = false;
-            metallurgy = "Cupro-Nickel";
+            metallurgy = new CuproNickel().smelt();
         }
         else if (cmpDoubles(value, DIME_VALUE)) {
             commonName = "Dime";
@@ -79,7 +82,7 @@ public abstract class Coin
             backImage = "Torch_Branches";
             valueDescription = "ONE DIME";
             ridgedEdge = true;
-            metallurgy = "Cupro-Nickel";
+            metallurgy = new CuproNickel().smelt();
         }
         else if (cmpDoubles(value, QUARTER_VALUE)) {
             commonName = "Quarter";
@@ -87,7 +90,7 @@ public abstract class Coin
             backImage = "Eagle";
             valueDescription = "QUARTER DOLLAR";
             ridgedEdge = true;
-            metallurgy = "Cupro-Nickel";
+            metallurgy = new CuproNickel().smelt();
         }
         else if (cmpDoubles(value, HALFDOLLAR_VALUE)) {
             commonName = "HalfDollar";
@@ -95,7 +98,7 @@ public abstract class Coin
             backImage = "Presidential_Seal";
             valueDescription = "HALF DOLLAR";
             ridgedEdge = true;
-            metallurgy = "Cupro-Nickel";
+            metallurgy = new CuproNickel().smelt();
         }
         else if (cmpDoubles(value, DOLLAR_VALUE)) {
             commonName = "Dollar";
@@ -103,7 +106,7 @@ public abstract class Coin
             backImage = "Moon_Eagle";
             valueDescription = "ONE DOLLAR";
             ridgedEdge = true;
-            metallurgy = "Cupro-Nickel";
+            metallurgy = new CuproNickel().smelt();
         }
         else value = 0;
     
@@ -119,6 +122,11 @@ public abstract class Coin
         private boolean cmpDoubles(double a, double b) 
         {
             return Math.abs(a-b) < 0.00001;
+        }
+
+        public void smelt() 
+        {
+            this.metallurgy = smelter.smelt();
         }
 
         public String toString() 

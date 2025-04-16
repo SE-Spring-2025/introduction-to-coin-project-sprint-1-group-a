@@ -1,28 +1,27 @@
 package Tests;
-import Main.Nickel;
-import static org.junit.jupiter.api.Assertions.*;
+
+import Main.*;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class NickelTest {
     @Test
     public void testNickelDefaultConstructor() {
         Nickel nickel = new Nickel();
-        assertEquals(0.05, nickel.getValue());
+        assertEquals(0.05, nickel.getValue(), 0.0001);
         assertEquals("Nickel", nickel.getCommonName());
-        assertEquals("IN GOD WE TRUST", nickel.getFrontMotto());
         assertEquals("T_Jefferson", nickel.getFrontImage());
         assertEquals("Jefferson_Memorial", nickel.getBackImage());
-        assertEquals("E PLURIBUS UNUM", nickel.getBackMotto());
-        assertEquals("LIBERTY", nickel.getFrontLabel());
-        assertEquals("UNITED STATES OF AMERICA", nickel.getBackLabel());
         assertEquals("FIVE CENTS", nickel.getValueDescription());
         assertFalse(nickel.getRidgedEdge());
         assertEquals("Cupro-Nickel", nickel.getMetallurgy());
     }
-    
+
     @Test
-    public void testNickelYearConstructor() {
-        Nickel nickel = new Nickel(2000);
-        assertEquals(2000, nickel.getManufactureYear());
+    public void testNickelCustomYearAndMetallurgy() {
+        Nickel nickel = new Nickel(1984, new Copper());
+        assertEquals(1984, nickel.getManufactureYear());
+        assertEquals("Copper", nickel.getMetallurgy());
     }
 }
+

@@ -1,12 +1,9 @@
 package Demo;
+
 import java.util.Scanner;
-import Main.Coin;
-import Main.Dime;
-import Main.Dollar;
-import Main.HalfDollar;
-import Main.Nickel;
-import Main.Penny;
-import Main.Quarter;
+
+import Main.*;
+
 
 public class Demo {
     private static Scanner keyboard = new Scanner(System.in);

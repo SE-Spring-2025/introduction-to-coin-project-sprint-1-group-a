@@ -1,20 +1,10 @@
 package Tests;
 
-import Main.Coin;
-import java.util.Calendar;
-
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeAll;
+import Main.*;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CoinTest {
-	@SuppressWarnings("unused")
-    private static int currYear;
-
-    @BeforeAll
-    public static void getCurrYear() {
-        currYear = Calendar.getInstance().get(Calendar.YEAR);
-    }
 
     @Test
     public void testMockCoinConstructorAndGetters() {
@@ -31,23 +21,23 @@ public class CoinTest {
         assertEquals("backLabel", c.getBackLabel());
         assertEquals("twenty-four cents", c.getValueDescription());
         assertFalse(c.getRidgedEdge());
-        assertEquals("metallurgy", c.getMetallurgy());
+        assertEquals("Copper", c.getMetallurgy());
     }
 
     @Test
     public void testToString() {
         Coin c = new MockCoin();
-
-        String expected = "[Mock,0.24,2000,'frontMotto','backMotto','frontImage','backImage','frontLabel','backLabel','twenty-four cents',smooth,'metallurgy']";
+        String expected = "[Mock,0.24,2000,'frontMotto','backMotto','frontImage','backImage','frontLabel','backLabel','twenty-four cents',smooth,'Copper']";
         assertEquals(expected, c.toString());
     }
 
-    // Local test subclass of Coin to allow testing
+    // MockCoin to help us test abstract Coin class
     private static class MockCoin extends Coin {
         public MockCoin() {
             super(0.24, "Mock", "frontMotto", 2000,
-                    "frontImage", "backImage", "backMotto",
-                    "frontLabel", "backLabel", "twenty-four cents", false, "metallurgy");
+                  "frontImage", "backImage", "backMotto",
+                  "frontLabel", "backLabel", "twenty-four cents",
+                  false, new Copper());
         }
     }
 }
