@@ -1,3 +1,5 @@
+package Tests;
+import Main.Dollar;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 

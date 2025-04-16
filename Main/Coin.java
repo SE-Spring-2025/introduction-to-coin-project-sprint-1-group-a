@@ -1,7 +1,8 @@
+package Main;
 import java.util.Calendar;
 import java.text.DecimalFormat;
 
-public class Coin 
+public abstract class Coin 
 {
     public static final double PENNY_VALUE = 0.01;
     public static final double NICKEL_VALUE = 0.05;
@@ -10,18 +11,18 @@ public class Coin
     public static final double HALFDOLLAR_VALUE = 0.50;
     public static final double DOLLAR_VALUE = 1.00;
 
-    double value;
-    String commonName;
-    String frontMotto;
-    int manufactureYear;
-    String frontImage;
-    String backImage;
-    String backMotto;
-    String frontLabel;
-    String backLabel;
-    String valueDescription;
-    boolean ridgedEdge;
-    String metallurgy;
+    protected double value;
+    protected String commonName;
+    protected String frontMotto;
+    protected int manufactureYear;
+    protected String frontImage;
+    protected String backImage;
+    protected String backMotto;
+    protected String frontLabel;
+    protected String backLabel;
+    protected String valueDescription;
+    protected boolean ridgedEdge;
+    protected String metallurgy;
 
     /**
      * Default constructor.
@@ -36,6 +37,24 @@ public class Coin
         this(value, (Calendar.getInstance()).get(Calendar.YEAR));
     }
 
+    public Coin(double value, String commonName, String frontMotto, int manufactureYear,
+    String frontImage, String backImage, String backMotto,
+    String frontLabel, String backLabel, String valueDescription,
+    boolean ridgedEdge, String metallurgy) 
+    {
+        this.value = value;
+        this.commonName = commonName;
+        this.frontMotto = frontMotto;
+        this.manufactureYear = manufactureYear;
+        this.frontImage = frontImage;
+        this.backImage = backImage;
+        this.backMotto = backMotto;
+        this.frontLabel = frontLabel;
+        this.backLabel = backLabel;
+        this.valueDescription = valueDescription;
+        this.ridgedEdge = ridgedEdge;
+        this.metallurgy = metallurgy;
+    }
     public Coin(double value, int year) {
 
         if (cmpDoubles(value, PENNY_VALUE)) {

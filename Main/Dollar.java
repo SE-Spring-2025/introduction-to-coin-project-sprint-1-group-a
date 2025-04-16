@@ -1,3 +1,6 @@
+package Main;
+import java.util.Calendar;
+
 public class Dollar extends Coin {
     public Dollar() {
         this(Calendar.getInstance().get(Calendar.YEAR)); // Default to current year

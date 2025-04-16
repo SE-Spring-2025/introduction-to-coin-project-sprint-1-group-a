@@ -1,3 +1,6 @@
+package Main;
+import java.util.Calendar;
+
 public class Dime extends Coin {
     public Dime() {
         this(Calendar.getInstance().get(Calendar.YEAR)); // Default to current year

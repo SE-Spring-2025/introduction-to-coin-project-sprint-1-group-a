@@ -1,5 +1,7 @@
-import static org.junit.jupiter.api.Assertions.*;
+package Tests;
+import Main.Penny;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PennyTest {
     @Test

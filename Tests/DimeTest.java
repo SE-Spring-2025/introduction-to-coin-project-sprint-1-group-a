@@ -1,3 +1,5 @@
+package Tests;
+import Main.Dime;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
