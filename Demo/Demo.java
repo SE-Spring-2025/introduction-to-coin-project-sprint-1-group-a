@@ -9,7 +9,6 @@ public class Demo {
     public static void main(String[] args) {
         System.out.println("\nWelcome to the CoinFlips Demo!");
 
-        // 🧠 Register observers (dashboards) BEFORE coin creation
         CoinCounts counts = Coin.getCoinCounts();
         new TotalCoinsDashboard(counts);
         new QuarterCounterDashboard(counts);
