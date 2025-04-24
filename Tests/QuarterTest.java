@@ -24,8 +24,8 @@ public class QuarterTest {
         assertTrue(q.getRidgedEdge());
         assertEquals("Cupro-Nickel", q.getMetallurgy());
 
-        assertEquals(1, Coin.getCoinCounts().getTotalCoins());  // 💥 Sprint 4
-        assertEquals(1, Coin.getCoinCounts().getQuarters());    // 💥 Sprint 4
+        assertEquals(1, Coin.getCoinCounts().getTotalCoins());
+        assertEquals(1, Coin.getCoinCounts().getQuarters());  
     }
 
     @Test
@@ -33,7 +33,7 @@ public class QuarterTest {
         Quarter q = new Quarter(2001, new Copper());
         assertEquals("Copper", q.getMetallurgy());
 
-        assertEquals(1, Coin.getCoinCounts().getTotalCoins());  // 💥 Sprint 4
-        assertEquals(1, Coin.getCoinCounts().getQuarters());    // 💥 Sprint 4
+        assertEquals(1, Coin.getCoinCounts().getTotalCoins());
+        assertEquals(1, Coin.getCoinCounts().getQuarters());
     }
 }
