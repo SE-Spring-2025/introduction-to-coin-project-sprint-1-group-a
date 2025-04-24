@@ -10,8 +10,7 @@ public class CoinTest {
 
     @BeforeEach
     public void resetCoinCounts() {
-        // Reset the static counter manually since we're not mocking CoinCounts
-        Coin.getCoinCounts().reset(); // you'll need to add this method
+        Coin.getCoinCounts().reset(); 
     }
 
     @Test
